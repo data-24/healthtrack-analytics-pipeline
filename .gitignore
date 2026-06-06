@@ -1,0 +1,20 @@
+# AWS credentials — never commit these
+upload_to_s3.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# dbt
+dbt/logs/
+dbt/target/
+dbt/.user.yml
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db

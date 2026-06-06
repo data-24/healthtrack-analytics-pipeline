@@ -1,0 +1,51 @@
+hospital_id,hospital_name,hospital_type,city,state,bed_count,is_teaching,updated_at
+H0001,Fowler Medical Center,Teaching,Houston,TX,300,True,2026-06-06
+H0002,Johnson Medical Center,Trauma Center,Phoenix,AZ,139,False,2026-06-06
+H0003,Hill Medical Center,General,Los Angeles,CA,273,True,2026-06-06
+H0004,Walker Memorial Hospital,General,Seattle,WA,624,True,2026-06-06
+H0005,Doyle Regional Hospital,Specialist,Denver,CO,509,False,2026-06-06
+H0006,Rhodes General Hospital,Community,New York,NY,398,False,2026-06-06
+H0007,Mcclain General Hospital,Teaching,Phoenix,AZ,154,True,2026-06-06
+H0008,Miller Medical Center,Teaching,Columbus,OH,402,False,2026-06-06
+H0009,Henderson Regional Hospital,Trauma Center,Los Angeles,CA,177,False,2026-06-06
+H0010,Johnson Memorial Hospital,Teaching,Chicago,IL,693,False,2026-06-06
+H0011,Robinson General Hospital,General,Boston,MA,96,True,2026-06-06
+H0012,Wagner Medical Center,Specialist,Jacksonville,FL,153,False,2026-06-06
+H0013,Johnson Regional Hospital,Teaching,Dallas,TX,216,False,2026-06-06
+H0014,Gonzalez General Hospital,Teaching,Fort Worth,TX,768,True,2026-06-06
+H0015,Santos General Hospital,Trauma Center,Nashville,TN,796,True,2026-06-06
+H0016,Gardner Regional Hospital,Community,Philadelphia,PA,326,True,2026-06-06
+H0017,Robinson Medical Center,Specialist,Austin,TX,82,False,2026-06-06
+H0018,Lawrence Health System,General,Columbus,OH,266,False,2026-06-06
+H0019,Pacheco Regional Hospital,Community,San Antonio,TX,708,False,2026-06-06
+H0020,Smith Health System,Specialist,Phoenix,AZ,302,False,2026-06-06
+H0021,Shaffer Regional Hospital,Trauma Center,Boston,MA,458,False,2026-06-06
+H0022,Wolfe General Hospital,Trauma Center,San Diego,CA,555,True,2026-06-06
+H0023,Peterson Medical Center,Specialist,Los Angeles,CA,692,True,2026-06-06
+H0024,Moore Memorial Hospital,General,Charlotte,NC,444,False,2026-06-06
+H0025,Bernard Regional Hospital,Trauma Center,Nashville,TN,307,True,2026-06-06
+H0026,Rogers Memorial Hospital,Teaching,Houston,TX,706,False,2026-06-06
+H0027,Davis Health System,Community,Houston,TX,211,False,2026-06-06
+H0028,Davis Health System,Trauma Center,New York,NY,232,True,2026-06-06
+H0029,Abbott Memorial Hospital,Trauma Center,Jacksonville,FL,253,True,2026-06-06
+H0030,Munoz General Hospital,Trauma Center,Fort Worth,TX,593,True,2026-06-06
+H0031,Roman Health System,Community,Nashville,TN,69,True,2026-06-06
+H0032,Blair Health System,Specialist,Fort Worth,TX,109,True,2026-06-06
+H0033,Herrera Medical Center,General,Boston,MA,799,False,2026-06-06
+H0034,Dudley Memorial Hospital,Specialist,Chicago,IL,181,False,2026-06-06
+H0035,Gray General Hospital,Teaching,Denver,CO,590,False,2026-06-06
+H0036,Arnold Memorial Hospital,Specialist,San Antonio,TX,780,False,2026-06-06
+H0037,Calderon Health System,Community,Columbus,OH,579,False,2026-06-06
+H0038,Montgomery General Hospital,Specialist,Houston,TX,115,False,2026-06-06
+H0039,Hensley Memorial Hospital,Trauma Center,New York,NY,285,True,2026-06-06
+H0040,Ray Medical Center,General,New York,NY,284,True,2026-06-06
+H0041,Bush Health System,General,Los Angeles,CA,576,True,2026-06-06
+H0042,Williams Regional Hospital,Specialist,Dallas,TX,602,True,2026-06-06
+H0043,Perez Memorial Hospital,Community,Boston,MA,298,False,2026-06-06
+H0044,Roberts General Hospital,General,Charlotte,NC,149,False,2026-06-06
+H0045,Miller Regional Hospital,Community,Fort Worth,TX,528,True,2026-06-06
+H0046,Hall Medical Center,Community,Houston,TX,795,False,2026-06-06
+H0047,Garcia General Hospital,Specialist,Houston,TX,244,False,2026-06-06
+H0048,Ramirez Regional Hospital,Specialist,Phoenix,AZ,335,False,2026-06-06
+H0049,Reid Medical Center,Community,San Diego,CA,613,True,2026-06-06
+H0050,Diaz Memorial Hospital,General,Los Angeles,CA,145,True,2026-06-06
