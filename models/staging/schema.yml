@@ -23,3 +23,86 @@ models:
       - name: state
         tests:
           - not_null
+  
+  - name: stg_hospitals
+    description: "Hospital master data — one row per hospital. Deduplicated by hospital_id."
+    
+    columns:
+      - name: hospital_id
+        tests:
+          - not_null
+          - unique
+      
+      - name: hospital_name
+        tests:
+          - not_null
+      
+      - name: hospital_type
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['General','Specialist','Teaching','Community','Trauma Center']
+      
+      - name: state
+        tests:
+          - not_null
+      
+      - name: bed_count
+        tests:
+          - not_null
+
+
+  - name: stg_diagnoses
+    description: "ICD-10 diagnosis reference data. Deduplicated by diagnosis_id."
+    
+    columns:
+      - name: diagnosis_id
+        tests:
+          - not_null
+          - unique
+      
+      - name: icd10_code
+        tests:
+          - not_null
+      
+      - name: severity
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['Low','Medium','High','Critical']
+  
+  - name: stg_admissions
+    description: "Hospital admission events. Incremental load by admission_id."
+    
+    columns:
+      - name: admission_id
+        tests:
+          - not_null
+          - unique
+      
+      - name: patient_id
+        tests:
+          - not_null
+      
+      - name: hospital_id
+        tests:
+          - not_null
+      
+      - name: diagnosis_id
+        tests:
+          - not_null
+      
+      - name: admission_type
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['Emergency','Elective','Urgent','Newborn']
+      
+      - name: length_of_stay
+        tests:
+          - not_null
+
+  
+
+
+
