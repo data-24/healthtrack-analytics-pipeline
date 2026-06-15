@@ -1,0 +1,57 @@
+version: 2
+
+semantic_models:
+  - name: admissions
+    description: "Hospital admission events for healthcare analytics"
+    model: ref('fct_admissions')
+    
+    defaults:
+      agg_time_dimension: admit_date
+
+    entities:
+      - name: admission
+        type: primary
+        expr: admission_id
+      
+      - name: patient
+        type: foreign
+        expr: patient_sk
+      
+      - name: hospital
+        type: foreign
+        expr: hospital_sk
+      
+      - name: diagnosis
+        type: foreign
+        expr: diagnosis_sk
+    dimensions:
+      - name: admit_date
+        type: time
+        type_params:
+          time_granularity: day
+      
+      - name: admission_type
+        type: categorical
+      
+      - name: readmission_flag
+        type: categorical
+    measures:
+      - name: admission_count
+        description: "Count of admissions"
+        agg: count
+        expr: "1"
+      
+      - name: total_cost
+        description: "Sum of admission costs"
+        agg: sum
+        expr: total_cost
+      
+      - name: total_los
+        description: "Sum of length of stay days"
+        agg: sum
+        expr: length_of_stay
+      
+      - name: readmission_count
+        description: "Count of readmissions"
+        agg: sum
+        expr: "CASE WHEN readmission_flag THEN 1 ELSE 0 END"
