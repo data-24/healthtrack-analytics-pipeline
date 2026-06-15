@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HEALTHTRACK_DB
+    schema: RAW
+    description: "Raw data ingested from S3 via Snowpipe"
+    
+    tables:
+      - name: patients
+        description: "Patient demographics — one row per patient"
+        config:
+          loaded_at_field: "_LOAD_TS"
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+      
+      - name: hospitals
+        description: "Hospital master data — one row per hospital"
+        config:
+          loaded_at_field: "_LOAD_TS"
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+      
+      - name: diagnoses
+        description: "ICD-10 diagnosis lookup table"
+        config:
+          loaded_at_field: "_LOAD_TS"
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+      
+      - name: admissions
+        description: "Patient hospital admissions — one row per admission event"
+        config:
+          loaded_at_field: "_LOAD_TS"
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}

@@ -1,0 +1,44 @@
+version: 2
+
+exposures:
+  - name: hospital_performance_dashboard
+    label: "Hospital Performance Dashboard"
+    type: dashboard
+    maturity: medium
+    url: "https://app.powerbi.com/healthcare/hospital-performance"
+    description: "Power BI dashboard showing hospital KPIs — admissions, revenue, LOS, readmission rates. Used by hospital operations team daily."
+    
+    depends_on:
+      - ref('mart_hospital_kpis')
+    
+    owner:
+      name: Priyanka Pandey
+      email: priyanka@healthtrack.com
+
+  - name: clinical_trends_dashboard
+    label: "Clinical Trends Dashboard"
+    type: dashboard
+    maturity: medium
+    url: "https://app.powerbi.com/healthcare/clinical-trends"
+    description: "Power BI dashboard showing diagnosis volume trends, severity breakdowns, and care domain distribution over time."
+    
+    depends_on:
+      - ref('mart_diagnosis_trends')
+    
+    owner:
+      name: Priyanka Pandey
+      email: priyanka@healthtrack.com
+
+  - name: patient_risk_dashboard
+    label: "Patient Risk Management"
+    type: dashboard
+    maturity: high
+    url: "https://app.powerbi.com/healthcare/patient-risk"
+    description: "Care management dashboard identifying high-risk patients for proactive outreach. Used by clinical operations daily."
+    
+    depends_on:
+      - ref('mart_patient_risk')
+    
+    owner:
+      name: Priyanka Pandey
+      email: priyanka@healthtrack.com

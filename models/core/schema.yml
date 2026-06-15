@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: dim_hospital
+    description: "Hospital dimension — SCD Type 1 (overwrite). One row per hospital."
+    columns:
+      - name: hospital_sk
+        description: "Surrogate key (MD5 of hospital_id)"
+        tests:
+          - not_null
+          - unique
+      - name: hospital_id
+        tests:
+          - not_null
+          - unique
+      - name: hospital_size_category
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['Small', 'Medium', 'Large']
+
+  - name: dim_patient
+    description: "Patient dimension — SCD Type 2 (history preserved). Multiple rows per patient_id."
+    columns:
+      - name: patient_sk
+        description: "Surrogate key from snapshot's dbt_scd_id"
+        tests:
+          - not_null
+          - unique
+      - name: patient_id
+        tests:
+          - not_null
+      - name: age_bucket
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['Under 18', '18-34', '35-49', '50-64', '65+']
+
+  - name: dim_icd_category
+    description: "ICD-10 category sub-dimension. Parent of dim_diagnosis (snowflake schema)."
+    columns:
+      - name: icd_category_sk
+        tests:
+          - not_null
+          - unique
+      - name: category_name
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_diagnosis
+    description: "Diagnosis dimension — Snowflake schema (FK to dim_icd_category)."
+    columns:
+      - name: diagnosis_sk
+        tests:
+          - not_null
+          - unique
+      - name: diagnosis_id
+        tests:
+          - not_null
+          - unique
+      - name: icd_category_sk
+        description: "FK to dim_icd_category"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_icd_category')
+                field: icd_category_sk
+
+  - name: fct_admissions
+    description: "Hospital admissions fact table. Star schema center. Incremental load with merge."
+    columns:
+      - name: admission_id
+        description: "Natural key — kept for traceability"
+        tests:
+          - not_null
+          - unique
+      - name: hospital_sk
+        description: "FK to dim_hospital (SCD Type 1)"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_hospital')
+                field: hospital_sk
+      - name: patient_sk
+        description: "FK to dim_patient (SCD Type 2)"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_patient')
+                field: patient_sk
+      - name: diagnosis_sk
+        description: "FK to dim_diagnosis"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_diagnosis')
+                field: diagnosis_sk
+      - name: admission_type
+        tests:
+          - dbt.accepted_values:
+              arguments:
+                values: ['Emergency', 'Elective', 'Urgent', 'Newborn']

@@ -1,0 +1,28 @@
+version: 2
+
+metrics:
+  - name: total_admissions
+    label: "Total Admissions"
+    type: simple
+    type_params:
+      measure: admission_count
+  
+  - name: total_revenue
+    label: "Total Revenue"
+    type: simple
+    type_params:
+      measure: total_cost
+  
+  - name: avg_length_of_stay
+    label: "Average Length of Stay"
+    type: ratio
+    type_params:
+      numerator: total_los
+      denominator: admission_count
+  
+  - name: readmission_rate
+    label: "Readmission Rate %"
+    type: ratio
+    type_params:
+      numerator: readmission_count
+      denominator: admission_count
